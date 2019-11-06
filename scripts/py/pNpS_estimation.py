@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import sys
+
 from Bio import SeqIO
+
 import glob
 from collections import Counter
 import itertools
 
-file_in = '/Users/anastasia/IdeaProjects/course_work_5/test_data/test_pn_ps.fasta'
-file_out = '/Users/anastasia/IdeaProjects/course_work_5/test_data/pn_ps.txt'
+file_in = '/mnt/lustre/nknyazeva/courseWork5/data/result/genes_GRCh38/ortho_MACMU18455_HUMAN23250/orf_MACMU18455_align_mafft.afa'
+file_out = '/mnt/lustre/nknyazeva/courseWork5/data/result/genes_GRCh38/ortho_MACMU18455_HUMAN23250/pn_ps_orf_MACMU18455_align_mafft.afa'
 
 
 codontable = {
@@ -41,10 +44,10 @@ def main():
     with open(file_out, "w") as outfile:
         outfile.write('{}\t{}\t{}\n'.format('gene_name', 'pn', 'ps'))
         for name in names:
-            gene_name = get_gene_name(name) 
+            gene_name = get_gene_name(name)
+            print(gene_name)
             # if gene_name in list_of_genes:
             with open(name, 'r') as handle:
-                print(gene_name)
                 seq_triplet = []
 
                 for a in SeqIO.parse(name, "fasta"):

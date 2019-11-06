@@ -22,11 +22,11 @@ def read_file(name_file):
 
                 if 'HUMAN' in line:
                     active_genotype = 'human'
-                    seq_macaca[id] = ''
+                    seq_human[id] = ''
                     line = file.readline()
                 else:
                     active_genotype = 'macaca'
-                    seq_human[id] = ''
+                    seq_macaca[id] = ''
                     line = file.readline()
 
             if active_genotype == 'macaca':
